@@ -409,6 +409,8 @@ class SwinTransformer(BaseBackbone):
                 norm_layer = nn.Identity()
 
             self.add_module(f'norm{i}', norm_layer)
+            
+        self._freeze_stages()
 
     def init_weights(self):
         super(SwinTransformer, self).init_weights()
